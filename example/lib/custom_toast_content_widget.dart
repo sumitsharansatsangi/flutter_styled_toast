@@ -19,6 +19,7 @@ class IconToastWidget extends StatelessWidget {
   final double? width;
   final String? assetName;
   final EdgeInsetsGeometry? padding;
+  final IconData icon;
 
   IconToastWidget({
     super.key,
@@ -27,63 +28,66 @@ class IconToastWidget extends StatelessWidget {
     this.message,
     this.height,
     this.width,
-    @required this.assetName,
+    required this.assetName,
+    required this.icon,
     this.padding,
   });
 
   factory IconToastWidget.fail({String? msg}) => IconToastWidget(
         message: msg,
         assetName: 'assets/ic_fail.png',
+        backgroundColor: Color.fromARGB(255, 216, 25, 25).withOpacity(0.6),
+        icon:Icons.error_outline_rounded
       );
 
   factory IconToastWidget.success({String? msg}) => IconToastWidget(
         message: msg,
         assetName: 'assets/ic_success.png',
+        backgroundColor: Color.fromARGB(255, 12, 136, 20).withOpacity(0.6),
+        icon:Icons.check_circle_outline
       );
 
   @override
   Widget build(BuildContext context) {
-    Widget content = Material(
-      color: Colors.transparent,
-      child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 50.0),
-          padding:
-              padding ?? EdgeInsets.symmetric(vertical: 20.0, horizontal: 17.0),
-          decoration: ShapeDecoration(
-            color: backgroundColor ?? const Color(0x9F000000),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
+    Widget content = Container(
+        padding:
+            padding ?? EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+        decoration: ShapeDecoration(
+          color: backgroundColor ?? const Color(0x9F000000),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
           ),
-          child: Wrap(
-            alignment: WrapAlignment.spaceEvenly,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 5.0),
-                child: Image.asset(
-                  assetName!,
-                  fit: BoxFit.fill,
-                  width: 30,
-                  height: 30,
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 5.0),
-                child: textWidget ??
-                    Text(
-                      message ?? '',
-                      style: TextStyle(
-                          fontSize:
-                              Theme.of(context).textTheme.titleLarge!.fontSize,
-                          color: Colors.white),
-                      softWrap: true,
-                      maxLines: 200,
-                    ),
-              ),
-            ],
-          )),
-    );
+        ),
+        child: Wrap(
+          alignment: WrapAlignment.spaceEvenly,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5.0),
+              child: 
+              Icon(icon,color: Colors.red.shade50,) 
+              // Image.asset(
+              //   assetName!,
+              //   fit: BoxFit.fill,
+              //   width: 30,
+              //   height: 30,
+              // ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5.0),
+              child: textWidget ??
+                  Text(
+                    message ?? '',
+                    style: TextStyle(
+                        fontSize:
+                            Theme.of(context).textTheme.titleLarge!.fontSize,
+                        color: Colors.white),
+                    softWrap: true,
+                    maxLines: 200,
+                  ),
+            ),
+          ],
+        ));
 
     return content;
   }
