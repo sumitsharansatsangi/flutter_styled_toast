@@ -919,11 +919,11 @@ class _SecondPageState extends State<SecondPage> {
 
   @override
   Widget build(BuildContext context) {
-    Color getColor(Set<MaterialState> states) {
-      const Set<MaterialState> interactiveStates = <MaterialState>{
-        MaterialState.pressed,
-        MaterialState.hovered,
-        MaterialState.focused,
+    Color getColor(Set<WidgetState> states) {
+      const Set<WidgetState> interactiveStates = <WidgetState>{
+        WidgetState.pressed,
+        WidgetState.hovered,
+        WidgetState.focused,
       };
       if (states.any(interactiveStates.contains)) {
         return Colors.blue;
@@ -958,7 +958,7 @@ class _SecondPageState extends State<SecondPage> {
                 },
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.resolveWith(getColor)),
+                        WidgetStateProperty.resolveWith(getColor)),
                 child: Text(
                   'normal toast',
                   style: TextStyle(fontSize: 15.0, color: Colors.white),

@@ -146,7 +146,7 @@ class BannerToastWidget extends StatelessWidget {
       padding: EdgeInsets.all(17.0),
       height: 60.0,
       alignment: Alignment.center,
-      color: backgroundColor ?? Theme.of(context).colorScheme.background,
+      color: backgroundColor ?? Theme.of(context).colorScheme.surface,
       child: textWidget ??
           Text(
             message ?? '',
