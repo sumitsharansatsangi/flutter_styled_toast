@@ -957,8 +957,7 @@ class _SecondPageState extends State<SecondPage> {
                   );
                 },
                 style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.resolveWith(getColor)),
+                    backgroundColor: WidgetStateProperty.resolveWith(getColor)),
                 child: Text(
                   'normal toast',
                   style: TextStyle(fontSize: 15.0, color: Colors.white),

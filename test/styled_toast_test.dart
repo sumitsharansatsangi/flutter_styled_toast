@@ -8,8 +8,10 @@ void main() {
       const textStyle = TextStyle(fontSize: 16.0, color: Colors.white);
       const backgroundColor = Color(0x99000000);
       const borderRadius = BorderRadius.all(Radius.circular(5.0));
-      const textPadding =
-          EdgeInsets.symmetric(horizontal: 17.0, vertical: 10.0);
+      const textPadding = EdgeInsets.symmetric(
+        horizontal: 17.0,
+        vertical: 10.0,
+      );
       const toastAnimation = StyledToastAnimation.size;
       const reverseAnimation = StyledToastAnimation.size;
       const startOffset = Offset(0.0, -1.0);
@@ -63,12 +65,16 @@ void main() {
       await tester.pumpWidget(styledToast);
       await tester.pump(const Duration(milliseconds: 1000));
       expect(styledToast.locale, const Locale('en', 'US'));
-      expect(styledToast.textStyle,
-          const TextStyle(fontSize: 16.0, color: Colors.white));
+      expect(
+        styledToast.textStyle,
+        const TextStyle(fontSize: 16.0, color: Colors.white),
+      );
       expect(styledToast.backgroundColor, const Color(0x99000000));
       expect(styledToast.borderRadius, BorderRadius.circular(5.0));
-      expect(styledToast.textPadding,
-          const EdgeInsets.symmetric(horizontal: 17.0, vertical: 10.0));
+      expect(
+        styledToast.textPadding,
+        const EdgeInsets.symmetric(horizontal: 17.0, vertical: 10.0),
+      );
       expect(styledToast.toastAnimation, StyledToastAnimation.size);
       expect(styledToast.reverseAnimation, StyledToastAnimation.size);
       expect(styledToast.startOffset, const Offset(0.0, -1.0));
@@ -103,9 +109,13 @@ void main() {
         backgroundColor: Colors.black45,
         borderRadius: BorderRadius.circular(20),
         shapeBorder: RoundedRectangleBorder(
-            side: const BorderSide(
-                color: Colors.blue, width: 1.0, style: BorderStyle.solid),
-            borderRadius: BorderRadius.circular(5)),
+          side: const BorderSide(
+            color: Colors.blue,
+            width: 1.0,
+            style: BorderStyle.solid,
+          ),
+          borderRadius: BorderRadius.circular(5),
+        ),
         onDismiss: () {},
         textDirection: TextDirection.ltr,
         dismissOtherToast: true,
@@ -253,9 +263,7 @@ class TestAppWidgetState extends State<TestAppWidget> {
         home: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
             _context = context;
-            return Container(
-              color: Colors.blue,
-            );
+            return Container(color: Colors.blue);
           },
         ),
       ),

@@ -6,17 +6,24 @@ import 'styled_toast_test.dart';
 
 void main() {
   group('ToastFuture', () {
-    testWidgets('Create, store and dismiss a toast future',
-        (WidgetTester tester) async {
-      OverlayEntry entry = OverlayEntry(builder: (BuildContext context) {
-        return const Text('toast future');
-      });
+    testWidgets('Create, store and dismiss a toast future', (
+      WidgetTester tester,
+    ) async {
+      OverlayEntry entry = OverlayEntry(
+        builder: (BuildContext context) {
+          return const Text('toast future');
+        },
+      );
       final GlobalKey<TestAppWidgetState> key = GlobalKey();
       final testAppWidget = TestAppWidget(overlayEntry: entry, key: key);
       await tester.pumpWidget(testAppWidget);
 
-      ToastFuture toastFuture = ToastFuture.create(const Duration(seconds: 4),
-          entry, () {}, GlobalKey(debugLabel: 'toast future global key'));
+      ToastFuture toastFuture = ToastFuture.create(
+        const Duration(seconds: 4),
+        entry,
+        () {},
+        GlobalKey(debugLabel: 'toast future global key'),
+      );
       final toastManager = ToastManager();
       toastManager.addFuture(toastFuture);
 
@@ -39,15 +46,21 @@ void main() {
   });
   group('ToastManager', () {
     testWidgets('Add and remove ToastFuture', (WidgetTester tester) async {
-      OverlayEntry entry = OverlayEntry(builder: (BuildContext context) {
-        return const Text('toast future');
-      });
+      OverlayEntry entry = OverlayEntry(
+        builder: (BuildContext context) {
+          return const Text('toast future');
+        },
+      );
       final GlobalKey<TestAppWidgetState> key = GlobalKey();
       final testAppWidget = TestAppWidget(overlayEntry: entry, key: key);
       await tester.pumpWidget(testAppWidget);
 
-      ToastFuture toastFuture = ToastFuture.create(const Duration(seconds: 4),
-          entry, () {}, GlobalKey(debugLabel: 'toast future global key'));
+      ToastFuture toastFuture = ToastFuture.create(
+        const Duration(seconds: 4),
+        entry,
+        () {},
+        GlobalKey(debugLabel: 'toast future global key'),
+      );
 
       key.currentState?.insertEntry();
       toastFuture.dismiss(showAnim: true);
@@ -65,8 +78,11 @@ void main() {
       final testAppWidget = TestAppWidget(key: key);
       await tester.pumpWidget(testAppWidget);
       for (int i = 0; i < 4; i++) {
-        showToast('toast$i',
-            dismissOtherToast: false, duration: const Duration(seconds: 10));
+        showToast(
+          'toast$i',
+          dismissOtherToast: false,
+          duration: const Duration(seconds: 10),
+        );
       }
       await tester.pump(const Duration(milliseconds: 100));
 
@@ -85,8 +101,11 @@ void main() {
       expect(find.text('toast3'), findsNothing);
 
       for (int i = 4; i < 8; i++) {
-        showToast('toast$i',
-            dismissOtherToast: false, duration: const Duration(seconds: 10));
+        showToast(
+          'toast$i',
+          dismissOtherToast: false,
+          duration: const Duration(seconds: 10),
+        );
       }
       await tester.pump(const Duration(milliseconds: 100));
 

@@ -34,18 +34,16 @@ class IconToastWidget extends StatelessWidget {
   });
 
   factory IconToastWidget.fail({String? msg}) => IconToastWidget(
-        message: msg,
-        assetName: 'assets/ic_fail.png',
-        backgroundColor: Color.fromARGB(255, 216, 25, 25).withOpacity(0.6),
-        icon:Icons.error_outline_rounded
-      );
+      message: msg,
+      assetName: 'assets/ic_fail.png',
+      backgroundColor: Color.fromARGB(255, 216, 25, 25).withOpacity(0.6),
+      icon: Icons.error_outline_rounded);
 
   factory IconToastWidget.success({String? msg}) => IconToastWidget(
-        message: msg,
-        assetName: 'assets/ic_success.png',
-        backgroundColor: Color.fromARGB(255, 12, 136, 20).withOpacity(0.6),
-        icon:Icons.check_circle_outline
-      );
+      message: msg,
+      assetName: 'assets/ic_success.png',
+      backgroundColor: Color.fromARGB(255, 12, 136, 20).withOpacity(0.6),
+      icon: Icons.check_circle_outline);
 
   @override
   Widget build(BuildContext context) {
@@ -63,16 +61,18 @@ class IconToastWidget extends StatelessWidget {
           crossAxisAlignment: WrapCrossAlignment.center,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5.0),
-              child: 
-              Icon(icon,color: Colors.red.shade50,) 
-              // Image.asset(
-              //   assetName!,
-              //   fit: BoxFit.fill,
-              //   width: 30,
-              //   height: 30,
-              // ),
-            ),
+                padding: EdgeInsets.symmetric(horizontal: 5.0),
+                child: Icon(
+                  icon,
+                  color: Colors.red.shade50,
+                )
+                // Image.asset(
+                //   assetName!,
+                //   fit: BoxFit.fill,
+                //   width: 30,
+                //   height: 30,
+                // ),
+                ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0),
               child: textWidget ??

@@ -29,38 +29,40 @@ void main() {
         reverseCurve: Curves.linear,
         isHideKeyboard: true,
         isIgnoring: true,
-        animationBuilder: (
-          BuildContext context,
-          AnimationController controller,
-          Duration duration,
-          Widget child,
-        ) {
-          return SlideTransition(
-            position: getAnimation<Offset>(
-              const Offset(0.0, 3.0),
-              const Offset(0, 0),
-              key.currentState!.animationController,
-              curve: Curves.bounceInOut,
-            ),
-            child: child,
-          );
-        },
-        reverseAnimBuilder: (
-          BuildContext context,
-          AnimationController controller,
-          Duration duration,
-          Widget child,
-        ) {
-          return SlideTransition(
-            position: getAnimation<Offset>(
-              const Offset(0.0, 0.0),
-              const Offset(-3.0, 0),
-              key.currentState!.reverseAnimationController,
-              curve: Curves.bounceInOut,
-            ),
-            child: child,
-          );
-        },
+        animationBuilder:
+            (
+              BuildContext context,
+              AnimationController controller,
+              Duration duration,
+              Widget child,
+            ) {
+              return SlideTransition(
+                position: getAnimation<Offset>(
+                  const Offset(0.0, 3.0),
+                  const Offset(0, 0),
+                  key.currentState!.animationController,
+                  curve: Curves.bounceInOut,
+                ),
+                child: child,
+              );
+            },
+        reverseAnimBuilder:
+            (
+              BuildContext context,
+              AnimationController controller,
+              Duration duration,
+              Widget child,
+            ) {
+              return SlideTransition(
+                position: getAnimation<Offset>(
+                  const Offset(0.0, 0.0),
+                  const Offset(-3.0, 0),
+                  key.currentState!.reverseAnimationController,
+                  curve: Curves.bounceInOut,
+                ),
+                child: child,
+              );
+            },
       );
       await tester.pump(const Duration(milliseconds: 100));
 
@@ -82,7 +84,8 @@ class CustomAnimationTestAppWidget extends StatefulWidget {
 }
 
 class CustomAnimationTestAppWidgetState
-    extends State<CustomAnimationTestAppWidget> with TickerProviderStateMixin {
+    extends State<CustomAnimationTestAppWidget>
+    with TickerProviderStateMixin {
   late AnimationController _mController;
   late AnimationController _mReverseController;
 
@@ -130,9 +133,7 @@ class CustomAnimationTestAppWidgetState
         title: appTitle,
         home: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-            return Container(
-              color: Colors.blue,
-            );
+            return Container(color: Colors.blue);
           },
         ),
       ),

@@ -1,4 +1,4 @@
-library flutter_styled_toast;
+library;
 
 export 'src/styled_toast.dart' show showToast, showToastWidget, StyledToast;
 export 'src/styled_toast_enum.dart';

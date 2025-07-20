@@ -44,9 +44,7 @@ class _TestWidgetState extends State<TestWidget> with TickerProviderStateMixin {
     animationController.addStatusListener((status) {
       widget.valueCallback(status);
     });
-    animation = Tween(begin: 0.0, end: 1.0).animate(
-      animationController,
-    );
+    animation = Tween(begin: 0.0, end: 1.0).animate(animationController);
     animationController.forward();
   }
 

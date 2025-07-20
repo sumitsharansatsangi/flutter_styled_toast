@@ -8,8 +8,10 @@ void main() {
       const textStyle = TextStyle(fontSize: 16.0, color: Colors.white);
       const backgroundColor = Color(0x99000000);
       final borderRadius = BorderRadius.circular(5.0);
-      const textPadding =
-          EdgeInsets.symmetric(horizontal: 17.0, vertical: 10.0);
+      const textPadding = EdgeInsets.symmetric(
+        horizontal: 17.0,
+        vertical: 10.0,
+      );
       const toastAnimation = StyledToastAnimation.size;
       const reverseAnimation = StyledToastAnimation.size;
       const startOffset = Offset(0.0, -1.0);
@@ -61,12 +63,16 @@ void main() {
       );
       await tester.pumpWidget(styledToastTheme);
       await tester.pump(const Duration(milliseconds: 1000));
-      expect(styledToastTheme.textStyle,
-          const TextStyle(fontSize: 16.0, color: Colors.white));
+      expect(
+        styledToastTheme.textStyle,
+        const TextStyle(fontSize: 16.0, color: Colors.white),
+      );
       expect(styledToastTheme.backgroundColor, const Color(0x99000000));
       expect(styledToastTheme.borderRadius, BorderRadius.circular(5.0));
-      expect(styledToastTheme.textPadding,
-          const EdgeInsets.symmetric(horizontal: 17.0, vertical: 10.0));
+      expect(
+        styledToastTheme.textPadding,
+        const EdgeInsets.symmetric(horizontal: 17.0, vertical: 10.0),
+      );
       expect(styledToastTheme.toastAnimation, StyledToastAnimation.size);
       expect(styledToastTheme.reverseAnimation, StyledToastAnimation.size);
       expect(styledToastTheme.startOffset, const Offset(0.0, -1.0));
